@@ -7,3 +7,4 @@ certs/*
 archive/*
 accounts/*
 chains/*
+hooks/__pycache__
