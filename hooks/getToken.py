@@ -8,7 +8,7 @@ import configparser
 
 
 configFile = '/etc/dehydrated/credentials.conf'
-if not os.path.isFile(configFile):
+if not os.path.isfile(configFile):
     cfgfile = open(configFile, 'w')
     Config = configparser.ConfigParser()
     Config.add_section('openprovider')
