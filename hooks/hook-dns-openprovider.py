@@ -7,12 +7,7 @@ import json
 import os
 from getToken import OPToken
 
-
-# Configurable items
-
-# Bearer-token is created with get-token
-# bearer = os.environ['OPENPROVIDER_API_BEARER']
-OPToken()
+# Get token from getToken.py
 bearer = OPToken()
 
 # Default TTL for records
@@ -22,7 +17,6 @@ argc = len(sys.argv)
 
 # We only respond on deploy_challenge / cleanup_challenge calls
 # These have 5 arguments
-
 if (argc < 5):
     sys.exit(0)
 
@@ -54,7 +48,6 @@ wildcard = False
 if (domain.split(".", 1)[0] == "*"):
     wildcard = True
     domain = "".join(domain.split(".", 1)[1:])
-
 
 # Find the base domain for the given domainname
 try:
@@ -107,9 +100,6 @@ else:
 
 print("Updating zone with domain " + domain + ", acme: " + acme + ", challenge: " + challenge + "\n")
 resp = requests.put(url=api + "/dns/zones/" + domain, data=json.dumps(postdata), headers=headers)
-print("superdomain", domain)
-print("postdata", postdata)
-print(resp.json())
 responsedata = json.loads(resp.text)
 
 if (resp.ok is True):
