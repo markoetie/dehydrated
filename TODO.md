@@ -1,1 +1,2 @@
 - Docker integration
+- Remove static paths from hook
